@@ -1,0 +1,69 @@
+name: cleanarchitecture
+description: "Proyek Flutter dengan arsitektur Clean Architecture"
+publish_to: 'none' # Baris ini mencegah paket dipublikasikan ke pub.dev
+
+# Versi dan build number aplikasi.
+# Format versi: tiga angka dipisahkan titik, misal 1.0.0
+# Build number: angka setelah tanda +, misal 1.0.0+1
+# Nilai ini bisa diganti saat build menggunakan --build-name dan --build-number
+# Di Android: build-name = versionName, build-number = versionCode
+# Di iOS: build-name = CFBundleShortVersionString, build-number = CFBundleVersion
+# Di Windows: build-name = versi produk, build-number = suffix build
+version: 1.0.0+1
+
+# Versi minimum Dart SDK yang digunakan
+environment:
+  sdk: ^3.7.2
+
+# Daftar dependency yang dibutuhkan aplikasi agar dapat berjalan
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Library fungsional seperti Either & Option
+  dartz: ^0.10.1
+
+  # Untuk melakukan HTTP request
+  http: ^1.2.1
+
+  # State management berbasis BLoC
+  flutter_bloc: ^9.1.0
+  bloc: ^9.0.0
+
+  # Ikon gaya iOS (Cupertino)
+  cupertino_icons: ^1.0.8
+
+  # Dependency Injection (pengelolaan instansiasi class)
+  get_it: ^8.0.3
+  connectivity_plus: ^6.1.3
+
+# Dependency khusus untuk pengembangan dan testing
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Paket linter yang membantu menulis kode dengan gaya yang baik
+  flutter_lints: ^5.0.0
+
+# Pengaturan spesifik untuk proyek Flutter
+flutter:
+  # Memastikan font ikon Material disertakan di aplikasi
+  uses-material-design: true
+
+  # Untuk menambahkan aset (seperti gambar), aktifkan dan sesuaikan baris berikut:
+  # assets:
+  #   - images/logo.png
+  #   - images/banner.jpg
+
+  # Untuk menambahkan font kustom, contoh struktur:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
