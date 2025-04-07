@@ -1,16 +1,31 @@
-# cleanarchitecture
+# Clean Architecture Flutter Project
 
-A new Flutter project.
+## 🔧 Dependency Utama
 
-## Getting Started
+- **State Management:** `flutter_bloc`
+- **Dependency Injection:** `get_it`
+- **Error Handling:** `dartz`, `Failure`
+- **Network Checking:** `connectivity_plus`
+- **HTTP Client:** `http`
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Fitur
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- ✅ Ambil daftar pengguna dari API `https://jsonplaceholder.typicode.com/users`
+- ✅ Tampilkan daftar dalam UI cantik (Card + Avatar)
+- ✅ Pencarian nama pengguna real-time
+- ✅ Navigasi ke halaman detail pengguna
+- ✅ Handling koneksi internet (NetworkInfo)
+- ✅ Struktur Clean Architecture rapi & scalable
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## ▶️ Cara Menjalankan
+
+1. Clone repo ini
+2. Jalankan:
+   ```bash
+   flutter pub get
+   flutter run
+
