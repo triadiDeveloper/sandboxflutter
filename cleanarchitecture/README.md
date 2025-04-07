@@ -12,7 +12,7 @@
 
 ## 🚀 Fitur
 
-- ✅ Ambil daftar pengguna dari API `https://jsonplaceholder.typicode.com/users`
+- ✅ Ambil daftar pengguna dari API `https://reqres.in/api-docs/`
 - ✅ Tampilkan daftar dalam UI cantik (Card + Avatar)
 - ✅ Pencarian nama pengguna real-time
 - ✅ Navigasi ke halaman detail pengguna
