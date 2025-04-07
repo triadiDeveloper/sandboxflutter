@@ -17,8 +17,9 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      final List<dynamic> jsonList = json.decode(response.body);
-      return jsonList.map((json) => UserModel.fromJson(json)).toList();
+      final decoded = json.decode(response.body);
+      final List users = decoded['data'];
+      return users.map((json) => UserModel.fromJson(json)).toList();
     } else {
       throw Exception('Failed to fetch users');
     }

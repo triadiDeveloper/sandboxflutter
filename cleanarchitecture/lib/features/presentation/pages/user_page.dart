@@ -69,7 +69,7 @@ class _UserPageState extends State<UserPage> {
 
                   if (state is UserLoaded) {
                     final filteredUsers = state.users.where((user) {
-                      return user.name.toLowerCase().contains(searchQuery);
+                      return user.email.toLowerCase().contains(searchQuery);
                     }).toList();
 
                     return ListView.builder(
@@ -85,14 +85,14 @@ class _UserPageState extends State<UserPage> {
                           margin: const EdgeInsets.symmetric(vertical: 8),
                           child: ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: Colors.deepPurple,
+                              backgroundImage: NetworkImage(user.avatar), // Memakai URL dari reqres.in
                               child: Text(
-                                user.name.substring(0, 1),
+                                user.email.substring(0, 1),
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
                             title: Text(
-                              user.name,
+                              user.email,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -104,7 +104,7 @@ class _UserPageState extends State<UserPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => UserDetailPage(userName: user.name),
+                                  builder: (_) => UserDetailPage(userName: user.email),
                                 ),
                               );
                             },

@@ -1,9 +1,18 @@
+import 'package:cleanarchitecture/features/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
-import 'features/presentation/pages/user_page.dart'; // sesuaikan path jika berbeda
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Import file injection_container.dart, berisi sl dan init()
 import 'injection_container.dart' as di;
+import 'injection_container.dart'; // agar kita bisa akses sl
+
+// Import page yang butuh AuthBloc, misalnya LoginPage
+import 'features/presentation/pages/login_page.dart';
+
+// Pastikan LoginPage menggunakan AuthBloc (misalnya context.read<AuthBloc>())
 
 void main() {
-  di.init(); // inisialisasi dependency injection
+  di.init(); // Inisialisasi dependency injection
   runApp(const MyApp());
 }
 
@@ -13,13 +22,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'User App',
+      title: 'User App From Reqres',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.purple.shade50,
       ),
-      home: const UserPage(), // <-- tampilkan halaman yang kamu buat
+      // Kita bungkus Home dengan BlocProvider
+      home: BlocProvider(
+        // Ambil AuthBloc dari service locator (sl<AuthBloc>())
+        create: (_) => sl<AuthBloc>(),
+        child: const LoginPage(), 
+      ),
     );
   }
 }
-// Jika kamu sudah menyesuaikan kode di atas, maka kamu sudah berhasil mengimplementasikan Clean Architecture pada Flutter. Selamat!

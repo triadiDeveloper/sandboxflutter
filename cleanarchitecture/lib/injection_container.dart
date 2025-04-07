@@ -1,5 +1,11 @@
 import 'package:cleanarchitecture/core/network/network_info.dart';
 import 'package:cleanarchitecture/core/network/network_info_impl.dart';
+import 'package:cleanarchitecture/features/data/datasources/auth_remote_datasource.dart';
+import 'package:cleanarchitecture/features/domain/repositories/auth_repository.dart';
+import 'package:cleanarchitecture/features/domain/repositories/auth_repository_impl.dart';
+import 'package:cleanarchitecture/features/domain/usecases/login.dart';
+import 'package:cleanarchitecture/features/domain/usecases/register.dart';
+import 'package:cleanarchitecture/features/presentation/bloc/auth_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
@@ -33,4 +39,12 @@ void init() {
   sl.registerLazySingleton<UserRemoteDataSource>(
     () => UserRemoteDataSourceImpl(client: sl()), // ⬅️ inject client
   );
+
+  sl.registerLazySingleton<AuthRemoteDataSource>(() => AuthRemoteDataSourceImpl(sl()));
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()));
+  sl.registerLazySingleton(() => Login(sl()));
+  sl.registerLazySingleton(() => Register(sl()));
+
+  sl.registerFactory(() => AuthBloc(sl(), sl()));
+
 }
